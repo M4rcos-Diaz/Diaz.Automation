@@ -73,7 +73,7 @@ function BookingForm({ isOpen, onClose }: BookingFormProps) {
               <h3 className="text-3xl md:text-4xl font-bold mb-6">
                 REQUEST<br />RECEIVED
               </h3>
-              <p className="text-gray-600 text-sm font-light">
+              <p className="text-gray-500 text-sm font-light">
                 We will contact you within 24 hours to schedule your consultation.
               </p>
             </div>
@@ -83,7 +83,7 @@ function BookingForm({ isOpen, onClose }: BookingFormProps) {
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
                   SCHEDULE<br />CONSULTATION
                 </h2>
-                <p className="text-xs text-gray-600 tracking-[0.3em] uppercase font-light">
+                <p className="text-xs text-gray-500 tracking-[0.3em] uppercase font-light">
                   Begin in 60 seconds
                 </p>
               </div>
@@ -180,7 +180,7 @@ function BookingForm({ isOpen, onClose }: BookingFormProps) {
                   {isSubmitting ? 'SUBMITTING...' : 'SUBMIT REQUEST'}
                 </button>
 
-                <p className="text-center text-gray-700 text-[10px] font-light mt-6">
+                <p className="text-center text-gray-600 text-[10px] font-light mt-6">
                   By submitting, you agree to receive communications from Diaz Automation
                 </p>
               </form>

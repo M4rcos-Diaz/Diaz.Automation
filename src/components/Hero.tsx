@@ -53,8 +53,6 @@ function Hero({ onBookCall }: HeroProps) {
 
       <div className="relative z-10 w-full px-8 md:px-16 lg:px-24 py-32 animate-fade-in">
         <div className="max-w-7xl">
-          <p className="text-xs tracking-[0.4em] uppercase text-gray-600 mb-12 font-light">COMING SOON</p>
-
           <h1 className="text-7xl md:text-8xl lg:text-9xl xl:text-[11rem] font-bold leading-[0.85] mb-16 max-w-5xl">
             BUILD<br />
             ON<br />
@@ -72,7 +70,7 @@ function Hero({ onBookCall }: HeroProps) {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
-        <p className="text-[10px] text-gray-700 tracking-[0.2em] uppercase font-light max-w-4xl">
+        <p className="text-[10px] text-gray-800 tracking-[0.2em] uppercase font-light max-w-4xl">
           DIAZ.AUTOMATION © 2025. ALL RIGHTS RESERVED. D, SA GENEVE SWITZERLAND & D SOFTWARES, QATAR
         </p>
       </div>

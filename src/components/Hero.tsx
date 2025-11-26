@@ -42,13 +42,10 @@ function Hero({ onBookCall }: HeroProps) {
         />
       </div>
 
-      <div className="absolute top-0 left-0 right-0 p-8 flex justify-between items-center z-20">
+      <div className="absolute top-0 left-0 right-0 p-8 z-20">
         <div className="animate-slide-in-left">
           <h2 className="text-xs tracking-[0.3em] uppercase text-white font-light">DIAZ.AUTOMATION</h2>
         </div>
-        <button className="text-xs tracking-[0.3em] uppercase text-gray-500 hover:text-white transition-colors font-light">
-          [ LOGIN ]
-        </button>
       </div>
 
       <div className="relative z-10 w-full px-8 md:px-16 lg:px-24 py-32 animate-fade-in">

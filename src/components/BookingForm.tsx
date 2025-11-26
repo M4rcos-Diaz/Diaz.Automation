@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, Calendar, CheckCircle, Send } from 'lucide-react';
+import { X, CheckCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 interface BookingFormProps {
@@ -57,50 +57,39 @@ function BookingForm({ isOpen, onClose }: BookingFormProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-      <div className="relative w-full max-w-2xl bg-gradient-to-br from-gray-900/95 to-gray-900/90 backdrop-blur-xl border border-cyan-500/30 rounded-3xl shadow-2xl shadow-cyan-500/20 max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-sm">
+      <div className="relative w-full max-w-2xl bg-black border border-gray-800 max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 p-2 text-gray-400 hover:text-white hover:bg-gray-800/50 rounded-full transition-all duration-200"
+          className="absolute top-6 right-6 p-2 text-gray-400 hover:text-white transition-colors"
         >
-          <X className="w-6 h-6" />
+          <X className="w-5 h-5" />
         </button>
 
-        <div className="p-8 md:p-12">
+        <div className="p-12 md:p-16">
           {isSuccess ? (
             <div className="text-center py-12">
-              <div className="inline-flex p-5 bg-gradient-to-br from-green-500/20 to-cyan-500/20 rounded-full mb-6 animate-pulse">
-                <CheckCircle className="w-20 h-20 text-green-400" />
-              </div>
-              <h3 className="text-4xl font-black text-white mb-4 bg-gradient-to-r from-white to-cyan-100 bg-clip-text text-transparent">
-                Booking Received!
+              <CheckCircle className="w-16 h-16 text-white mx-auto mb-6" />
+              <h3 className="text-3xl font-bold mb-4">
+                REQUEST RECEIVED
               </h3>
-              <p className="text-gray-400 text-lg">
-                Our team will contact you within 24 hours to schedule your free consultation.
+              <p className="text-gray-500">
+                We will contact you within 24 hours to schedule your consultation.
               </p>
             </div>
           ) : (
             <>
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl shadow-lg glow-cyan">
-                  <Calendar className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h2 className="text-3xl md:text-4xl font-black text-white bg-gradient-to-r from-white to-cyan-100 bg-clip-text text-transparent">
-                    Book Your Free Call
-                  </h2>
-                  <p className="text-cyan-400 text-sm font-semibold">Get Started in 60 Seconds</p>
-                </div>
-              </div>
-
-              <p className="text-gray-400 mb-8 leading-relaxed text-[15px]">
-                Discover how AI automation can transform your business operations. Our experts will create a custom strategy tailored to your specific needs.
+              <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                SCHEDULE CONSULTATION
+              </h2>
+              <p className="text-sm text-gray-500 mb-12 tracking-widest uppercase">
+                Begin in 60 seconds
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-bold text-gray-300 mb-2 uppercase tracking-wide">
+                    <label htmlFor="name" className="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">
                       Full Name *
                     </label>
                     <input
@@ -109,14 +98,14 @@ function BookingForm({ isOpen, onClose }: BookingFormProps) {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 bg-gray-800/60 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all"
+                      className="w-full px-4 py-3 bg-black border border-gray-800 text-white placeholder-gray-600 focus:outline-none focus:border-white transition-colors"
                       placeholder="John Doe"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-bold text-gray-300 mb-2 uppercase tracking-wide">
-                      Email Address *
+                    <label htmlFor="email" className="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">
+                      Email *
                     </label>
                     <input
                       type="email"
@@ -124,16 +113,16 @@ function BookingForm({ isOpen, onClose }: BookingFormProps) {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 bg-gray-800/60 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all"
+                      className="w-full px-4 py-3 bg-black border border-gray-800 text-white placeholder-gray-600 focus:outline-none focus:border-white transition-colors"
                       placeholder="john@company.com"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-bold text-gray-300 mb-2 uppercase tracking-wide">
-                      Company Name *
+                    <label htmlFor="company" className="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">
+                      Company *
                     </label>
                     <input
                       type="text"
@@ -141,28 +130,28 @@ function BookingForm({ isOpen, onClose }: BookingFormProps) {
                       required
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-4 py-3 bg-gray-800/60 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all"
-                      placeholder="Your Company Inc."
+                      className="w-full px-4 py-3 bg-black border border-gray-800 text-white placeholder-gray-600 focus:outline-none focus:border-white transition-colors"
+                      placeholder="Your Company"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-bold text-gray-300 mb-2 uppercase tracking-wide">
-                      Phone Number
+                    <label htmlFor="phone" className="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">
+                      Phone
                     </label>
                     <input
                       type="tel"
                       id="phone"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 bg-gray-800/60 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all"
+                      className="w-full px-4 py-3 bg-black border border-gray-800 text-white placeholder-gray-600 focus:outline-none focus:border-white transition-colors"
                       placeholder="+1 (555) 000-0000"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-bold text-gray-300 mb-2 uppercase tracking-wide">
+                  <label htmlFor="message" className="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">
                     Project Details
                   </label>
                   <textarea
@@ -170,13 +159,13 @@ function BookingForm({ isOpen, onClose }: BookingFormProps) {
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800/60 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition-all resize-none"
-                    placeholder="Tell us about your automation goals, challenges, and what you're looking to achieve..."
+                    className="w-full px-4 py-3 bg-black border border-gray-800 text-white placeholder-gray-600 focus:outline-none focus:border-white transition-colors resize-none"
+                    placeholder="Tell us about your automation goals..."
                   />
                 </div>
 
                 {error && (
-                  <div className="p-4 bg-red-500/10 border border-red-500/40 rounded-xl text-red-400 text-sm font-semibold">
+                  <div className="p-4 border border-red-500 text-red-500 text-sm">
                     {error}
                   </div>
                 )}
@@ -184,25 +173,12 @@ function BookingForm({ isOpen, onClose }: BookingFormProps) {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group w-full px-6 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl font-bold text-white text-lg hover:scale-[1.02] hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 relative overflow-hidden"
+                  className="w-full border-2 border-white text-white px-6 py-4 text-sm tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    {isSubmitting ? (
-                      <>
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                        Processing...
-                      </>
-                    ) : (
-                      <>
-                        Submit Request
-                        <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                      </>
-                    )}
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {isSubmitting ? 'SUBMITTING...' : 'SUBMIT REQUEST'}
                 </button>
 
-                <p className="text-center text-gray-500 text-xs mt-4">
+                <p className="text-center text-gray-600 text-xs">
                   By submitting, you agree to receive communications from Diaz Automation
                 </p>
               </form>

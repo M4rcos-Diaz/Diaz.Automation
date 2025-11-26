@@ -7,7 +7,7 @@ function App() {
   const [showForm, setShowForm] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-950">
+    <div className="min-h-screen bg-black">
       <Hero onBookCall={() => setShowForm(true)} />
       <Features onBookCall={() => setShowForm(true)} />
       <BookingForm isOpen={showForm} onClose={() => setShowForm(false)} />
